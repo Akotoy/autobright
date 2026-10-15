@@ -1,0 +1,42 @@
+# ~/.config/autobright/config.toml — everything is optional.
+# The settings window ("Автояркость") writes this file too.
+
+# Seconds between readings while the light changes...
+interval = 30
+# ...stretching up to this while it stays the same (fewer LED blinks).
+max_interval = 180
+# After a big change (lights switched on/off) re-check this soon.
+fast_interval = 8
+
+# Brightness curve: [log10(ambient), screen brightness 0..1], piecewise linear.
+# Easiest to tune from the window ("Подстроить под себя" → «Запомнить»).
+curve = [[1.0, 0.05], [2.5, 0.50], [4.0, 0.85], [5.0, 1.00]]
+
+# Fraction of each new reading mixed into the running average (log domain).
+smoothing = 0.5
+# Don't touch the backlight for changes smaller than this.
+hysteresis = 0.03
+# Fade time between levels, seconds.
+transition = 2.5
+
+# Don't use the camera while the screen is locked / nobody uses mouse and keyboard.
+pause_when_locked = true
+pause_when_away = true
+away_after = 120
+
+# Offer to remember brightness you keep correcting by hand.
+suggest = true
+
+# Keyboard backlight on in the dark (33 / 66 / 100 percent).
+kbd_auto = false
+kbd_level = 33
+kbd_dark_below = 1.8
+
+# Camera specifics (see `autobright.py probe`).
+# device = "/dev/video0"
+# roi_top = 0.35          # top share of the picture used for measuring (the wall)
+# black_level = 12.0
+# target_luma = 55.0
+# max_exposure_ms = 150.0
+# use_gain = true
+# screen_glow = 0.0       # set by the «Учесть свет от экрана» calibration

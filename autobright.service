@@ -1,0 +1,14 @@
+[Unit]
+Description=Webcam-based automatic screen brightness
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/python3 %h/.local/share/autobright/autobright.py run
+ExecStopPost=/usr/bin/python3 %h/.local/share/autobright/autobright.py off
+Restart=on-failure
+RestartSec=10
+Nice=10
+
+[Install]
+WantedBy=graphical-session.target

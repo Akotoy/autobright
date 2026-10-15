@@ -1,0 +1,6 @@
+{
+  "uuid": "autobright@autobright.local",
+  "name": "Автояркость",
+  "description": "Переключатель автояркости по веб-камере в быстрых настройках (сервис autobright).",
+  "shell-version": ["50"]
+}
